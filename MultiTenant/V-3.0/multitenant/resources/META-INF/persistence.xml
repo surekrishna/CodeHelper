@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+
+	<persistence-unit name="defaultSchema">
+		<class>com.krish.entity.master.Usrlogin</class>
+		<class>com.krish.entity.master.CompanyMaster</class>
+		<exclude-unlisted-classes>true</exclude-unlisted-classes>
+		
+		<properties>
+			<property name="javax.persistence.jdbc.url"	value="jdbc:mysql://127.0.0.1:3306/krish_master" />
+			<property name="javax.persistence.jdbc.user" value="krish" />
+			<property name="javax.persistence.jdbc.password" value="krish" />
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
+
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<!-- 1 -> READ UNCOMMITTED
+				 2 -> READ COMMITTED
+				 4 -> REPEATABLE READ
+				 8 -> SERIALIZABLE  -->
+			<property name="hibernate.connection.isolation" value="2"/>
+			<property name="hibernate.show_sql" value="false" />
+			<property name="hibernate.format_sql" value="false" />
+			
+			<!-- hibernate connection pool c3p0 properties  --> 
+			<property name="hibernate.c3p0.min_size" value="5"/>
+			<property name="hibernate.c3p0.max_size" value="20"/>
+			<property name="hibernate.c3p0.timeout" value="1800"/>
+			<property name="hibernate.c3p0.max_statements" value="50"/>
+			<property name="hibernate.c3p0.idle_test_period" value="3000"/>
+		</properties>
+	</persistence-unit>
+</persistence>
